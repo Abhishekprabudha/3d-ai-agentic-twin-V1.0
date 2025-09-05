@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agentic Twin — Staged Disruptions</title>
+  <link href="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.css" rel="stylesheet" />
+  <style>
+    html, body, #map { height: 100%; margin: 0; background: #0a0a0b; }
+    #ui {
+      position: fixed; top: 12px; left: 12px; display: flex; gap: 8px; z-index: 10;
+    }
+    #ui button {
+      background: #111318; color: #e6e6e6; border: 1px solid #2a2a2a;
+      padding: 8px 12px; border-radius: 10px; cursor: pointer; font: 14px/1.2 system-ui, Segoe UI, Roboto, sans-serif;
+    }
+    #ui button:hover { background: #191b22; }
+
+    /* Warehouse stats card */
+    #stats {
+      position: fixed; right: 12px; top: 12px; width: 300px; z-index: 10;
+      background: rgba(11,11,13,0.9); color: #e6e6e6; border: 1px solid #2a2a2a;
+      border-radius: 12px; padding: 12px; font: 13px/1.35 system-ui, Segoe UI, Roboto, sans-serif;
+      backdrop-filter: blur(4px);
+    }
+    #stats h3 { margin: 0 0 8px 0; font-size: 14px; }
+    #stats table { width: 100%; border-collapse: collapse; }
+    #stats th, #stats td { padding: 6px 4px; border-bottom: 1px solid #24262c; font-size: 12px; }
+    #stats th { color: #aab3bd; text-align: left; font-weight: 600; }
+    #stats .pos { color: #00d08a; }
+    #stats .neg { color: #ff6b6b; }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <!-- script.js will relabel these to "Disrupt" and "Correct" and also insert a "Normal" button -->
+    <button id="btnBefore">Before Disruption</button>
+    <button id="btnAfter">After Correction</button>
+  </div>
+
+  <div id="stats">
+    <h3>Predicted Dashboard Status</h3>
+    <table id="statsTable">
+      <thead>
+        <tr><th>Warehouse</th><th>Inv</th><th>In</th><th>Out</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

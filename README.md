@@ -1,1 +1,1 @@
-# 3d-ai-agentic-twin-V1.0
+# 3d-ai-agentic-twin-demo
